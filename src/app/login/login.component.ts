@@ -9,16 +9,14 @@ export class LoginComponent implements OnInit {
 
   emailId;
   passwordValue;
-  data;
-
+  ng = this;
   constructor() {
   }
 
   ngOnInit() {
   }
 
-  addCourse(email, password) {
-    this.data = email + password;
+  login(email, password) {
   }
 
 }
