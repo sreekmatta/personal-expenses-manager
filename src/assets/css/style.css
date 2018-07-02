@@ -1,0 +1,12 @@
+.eg-submit-forms{
+  background-color: lightgray;
+  border-radius: 5px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.eg-form-img{
+  display: block;
+  margin: auto;
+  border-radius: 20%;
+}
