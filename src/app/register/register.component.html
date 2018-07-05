@@ -1,3 +1,17 @@
-<p>
-  register works!
-</p>
+<form class="form-signin eg-submit-forms">
+  <div><img class="mb-4 eg-form-img" src="../../assets/images/user-avatar.png" alt="" width="72" height="72"></div>
+  <h1 class="h3 mb-3 font-weight-normal">Please register</h1>
+  <label for="inputEmail" class="sr-only">Email address</label>
+  <input [(ngModel)]="emailId" name="inputEmail" type="email" id="inputEmail" class="form-control"
+         placeholder="Email address" required autofocus>
+  <label for="inputPassword" class="sr-only">Password</label>
+  <input [(ngModel)]="passwordValue" name="inputPassword" type="password" id="inputPassword" class="form-control"
+         placeholder="Password" required>
+  <label for="confirmPassword" class="sr-only">Confirm Password</label>
+  <input [(ngModel)]="confirmPasswordValue" name="confirmPassword" type="password" id="confirmPassword"
+         class="form-control" placeholder="Confirm Password" required>
+  <button (click)="register(emailId,passwordValue,confirmPasswordValue)" class="btn btn-lg btn-primary btn-block"
+          type="submit">Sign in
+  </button>
+  <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+</form>

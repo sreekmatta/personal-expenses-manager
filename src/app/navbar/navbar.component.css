@@ -15,3 +15,17 @@
   color: #fff;
   text-decoration: none;
 }
+
+.eg-badge{
+  margin-left: 15px;
+  font-size: medium;
+}
+
+.eg-link{
+  color: white;
+}
+
+.ng-navbar-links{
+  float: right;
+  margin-left: 20px;
+}

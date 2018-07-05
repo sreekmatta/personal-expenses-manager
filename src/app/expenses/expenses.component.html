@@ -1,0 +1,139 @@
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard">
+              <span data-feather="home"></span>
+              Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/expenses">
+              <span data-feather="file"></span>
+              Expenses <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/invite">
+              <span data-feather="shopping-cart"></span>
+              Invite friends
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span data-feather="bar-chart-2"></span>
+              Reports
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="h2">Expenses</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group mr-2">
+            <button class="btn btn-sm btn-outline-secondary">Share</button>
+            <button class="btn btn-sm btn-outline-secondary">Export</button>
+          </div>
+          <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+            <span data-feather="calendar"></span>
+            This week
+          </button>
+        </div>
+      </div>
+      <div>
+        <a class="btn btn-success d-none d-md-inline-block ng-navbar-links" data-toggle="modal"
+           data-target="#addExpense">Add Expense</a>
+        <table class="table table-hover eg-table">
+          <thead>
+          <tr>
+            <th scope="col">Expense</th>
+            <th scope="col">Date</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Edit/Delete</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row">Mark</th>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>
+              <button type="button" class="btn btn-primary">Edit</button> &nbsp;
+              <button type="button" class="btn btn-danger">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Mark</th>
+            <td>Thornton</td>
+            <td>@fat</td>
+            <td>
+              <button type="button" class="btn btn-primary">Edit</button> &nbsp;
+              <button type="button" class="btn btn-danger">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Mark</th>
+            <td>Thornton</td>
+            <td>@twitter</td>
+            <td>
+              <button type="button" class="btn btn-primary">Edit</button> &nbsp;
+              <button type="button" class="btn btn-danger">Delete</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <!--<canvas class="my-4" id="myChart" width="900" height="380"></canvas>-->
+    </main>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="addExpense" tabindex="-1" role="dialog" aria-labelledby="addExpenseTitle"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Add Expense</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <form class="form-signin eg-submit-forms">
+            <input [(ngModel)]="description" name="description" type="text" id="description" class="form-control"
+                   placeholder="Expense description" required autofocus>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+              </div>
+              <input [(ngModel)]="amount" name="amount" type="number" id="amount" class="form-control"
+                     placeholder="amount" required autofocus>
+            </div>
+            <input [(ngModel)]="paidBy" name="paidBy" type="text" id="paidBy" class="form-control"
+                   placeholder="paid by" required autofocus>
+            <input [(ngModel)]="peopleInvolved" name="description" type="text" id="peopleInvolved" class="form-control"
+                   placeholder="people involved" required autofocus>
+
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="customFile">
+              <label class="custom-file-label" for="customFile">Upload bill</label>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button (click)="addExpense(description,amount)" class="btn btn-primary" type="submit">Add
+        </button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
