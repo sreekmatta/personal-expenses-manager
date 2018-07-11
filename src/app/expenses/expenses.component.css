@@ -5,3 +5,25 @@
 input{
   margin-bottom: 8px;
 }
+
+.eg-results{
+  position: fixed !important;
+  z-index: 1050 !important;
+}
+
+.ui-helper-hidden-accessible{
+  display: none !important;
+}
+
+.ui-autocomplete {
+
+
+  /* prevent horizontal scrollbar */
+  overflow-x: hidden;
+}
+/* IE 6 doesn't support max-height
+ * we use height instead, but this forces the menu to always be this tall
+ */
+* html .ui-autocomplete {
+  height: 100px;
+}

@@ -7,6 +7,7 @@ import {ExpensegatorComponent} from './expensegator/expensegator.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {ExpensesComponent} from './expenses/expenses.component';
 import {InviteFriendComponent} from './invite-friend/invite-friend.component';
+import {LogoutComponent} from './logout/logout.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
   {path: 'expenses', component: ExpensesComponent},
   {path: 'invite', component: InviteFriendComponent},
+  {path: 'logout', component: LogoutComponent},
   {path: '**', component: AppComponent}
 ];
 export const routing = RouterModule.forRoot(appRoutes);

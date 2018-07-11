@@ -69,5 +69,142 @@
   feather.replace()
 </script>
 
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+  $(function () {
+    var availableTags = [
+      "dummy element 1",
+      "dummy element 2",
+      "dummy element 3",
+      "dummy element 4"
+    ];
+
+    function split(val) {
+      return val.split(/,\s*/);
+    }
+
+    function extractLast(term) {
+      return split(term).pop();
+    }
+
+    $("#tags")
+    // don't navigate away from the field on tab when selecting an item
+      .on("keydown", function (event) {
+        $(".ui-helper-hidden-accessible").css({
+          "display":"none"
+        });
+        $("#ui-id-1").css({
+          "position": "fixed",
+          "z-index": "1050",
+          "background-color": "white",
+          "border-bottom-left-radius": "6px",
+          "border-bottom-right-radius": "6px",
+          "border": "1px solid lightgray",
+          "max-height": "100px",
+          "overflow-y": "auto"
+        });
+        $("#ui-id-1>dl, ol, ul").css({
+          "list-style-type": "none"
+        });
+        if (event.keyCode === $.ui.keyCode.TAB &&
+          $(this).autocomplete("instance").menu.active) {
+          event.preventDefault();
+        }
+      })
+      .autocomplete({
+        minLength: 0,
+        source: function (request, response) {
+          // delegate back to autocomplete, but extract the last term
+          response($.ui.autocomplete.filter(
+            availableTags, extractLast(request.term)));
+        },
+        focus: function () {
+          // prevent value inserted on focus
+          return false;
+        },
+        select: function (event, ui) {
+          var terms = split(this.value);
+          // remove the current input
+          terms.pop();
+          // add the selected item
+          terms.push(ui.item.value);
+          // add placeholder to get the comma-and-space at the end
+          terms.push("");
+          this.value = terms.join(", ");
+          return false;
+        }
+      });
+
+  });
+</script>
+<script>
+  $(function () {
+    var availablePeopleInvolved = [
+      "dummy person 1",
+      "dummy person 2",
+      "dummy person 3",
+      "dummy person 4"
+    ];
+
+    function split(val) {
+      return val.split(/,\s*/);
+    }
+
+    function extractLast(term) {
+      return split(term).pop();
+    }
+
+    $("#peopleInvolved")
+    // don't navigate away from the field on tab when selecting an item
+      .on("keydown", function (event) {
+        $(".ui-helper-hidden-accessible").css({
+          "display":"none"
+        });
+        $("#ui-id-2").css({
+          "position": "fixed",
+          "z-index": "1050",
+          "background-color": "white",
+          "border-bottom-left-radius": "6px",
+          "border-bottom-right-radius": "6px",
+          "border": "1px solid lightgray",
+          "max-height": "100px",
+          "overflow-y": "auto"
+        });
+        $("#ui-id-2>dl, ol, ul").css({
+          "list-style-type": "none"
+        });
+        if (event.keyCode === $.ui.keyCode.TAB &&
+          $(this).autocomplete("instance").menu.active) {
+          event.preventDefault();
+        }
+      })
+      .autocomplete({
+        minLength: 0,
+        source: function (request, response) {
+// delegate back to autocomplete, but extract the last term
+          response($.ui.autocomplete.filter(
+            availablePeopleInvolved, extractLast(request.term)));
+        },
+        focus: function () {
+// prevent value inserted on focus
+          return false;
+        },
+        select: function (event, ui) {
+          var terms = split(this.value);
+// remove the current input
+          terms.pop();
+// add the selected item
+          terms.push(ui.item.value);
+// add placeholder to get the comma-and-space at the end
+          terms.push("");
+          this.value = terms.join(", ");
+          return false;
+        }
+      });
+
+  });
+</script>
+
 </body>
 </html>

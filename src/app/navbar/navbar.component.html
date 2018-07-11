@@ -5,8 +5,11 @@
         <a routerLink="/home"><img class="eg-logo" src="../../assets/images/logo.svg" type="image/svg+xml"/></a>
       </div>
       <div class="col-sm-9">
-        <a class="d-none d-md-inline-block ng-navbar-links" routerLink="/login">Login</a>
-        <a class="d-none d-md-inline-block ng-navbar-links" routerLink="/register">Register</a>
+        <a class="d-none d-md-inline-block ng-navbar-links" *ngIf="!session" routerLink="/login">Login</a>
+        <a class="d-none d-md-inline-block ng-navbar-links" *ngIf="!session" routerLink="/register">Register</a>
+
+        <a class="d-none d-md-inline-block ng-navbar-links" *ngIf="session" routerLink="/logout">Logout</a>
+        <a class="d-none d-md-inline-block ng-navbar-links" *ngIf="session" routerLink="/profile">Profile</a>
         <a class="d-none d-md-inline-block ng-navbar-links" data-toggle="modal" data-target="#exampleModalCenter">Developers</a>
       </div>
     </div>

@@ -16,6 +16,7 @@ import { ExpensesComponent } from './expenses/expenses.component';
 import { InviteFriendComponent } from './invite-friend/invite-friend.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {UserServiceClient} from './services/user.service.client';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {UserServiceClient} from './services/user.service.client';
     DashboardComponent,
     ExpensesComponent,
     InviteFriendComponent,
-    SidebarComponent
+    SidebarComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

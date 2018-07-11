@@ -117,11 +117,16 @@
               <input [(ngModel)]="amount" name="amount" type="number" id="amount" class="form-control"
                      placeholder="amount" required autofocus>
             </div>
-            <input [(ngModel)]="paidBy" name="paidBy" type="text" id="paidBy" class="form-control"
-                   placeholder="paid by" required autofocus>
-            <input [(ngModel)]="peopleInvolved" name="description" type="text" id="peopleInvolved" class="form-control"
-                   placeholder="people involved" required autofocus>
 
+            <div class="ui-widget">
+              <input [(ngModel)]="paidBy" name="paidBy" type="text" id="tags" class="form-control"
+                     placeholder="paid by" required autofocus>
+            </div>
+            <div class="ui-widget">
+              <input [(ngModel)]="peopleInvolved" name="description" type="text" id="peopleInvolved"
+                     class="form-control"
+                     placeholder="people involved" required autofocus>
+            </div>
             <div class="custom-file">
               <input type="file" class="custom-file-input" id="customFile">
               <label class="custom-file-label" for="customFile">Upload bill</label>
@@ -137,3 +142,4 @@
     </div>
   </div>
 </div>
+

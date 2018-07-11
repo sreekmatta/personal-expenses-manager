@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {UserServiceClient} from '../services/user.service.client';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  session;
+  ng = this;
+
+  constructor(private router: Router,
+              private service: UserServiceClient) {
+  }
 
   ngOnInit() {
+    this.service.checkSession()
+      .then(response => {
+        if (response === 'BAD_REQUEST') {
+          this.session = false;
+        } else {
+          this.session = true;
+        }
+      }, response => {
+        this.session = false;
+      });
+
   }
+
 
 }
