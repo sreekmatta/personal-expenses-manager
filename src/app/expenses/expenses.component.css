@@ -27,3 +27,7 @@ input{
 * html .ui-autocomplete {
   height: 100px;
 }
+
+.eg-people-card{
+  margin-top: 10px;
+}

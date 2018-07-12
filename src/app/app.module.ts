@@ -17,6 +17,7 @@ import { InviteFriendComponent } from './invite-friend/invite-friend.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {UserServiceClient} from './services/user.service.client';
 import { LogoutComponent } from './logout/logout.component';
+import {ExpenseServiceClient} from './services/expense.service.client';
 
 
 @NgModule({
@@ -40,7 +41,7 @@ import { LogoutComponent } from './logout/logout.component';
     HttpModule,
     routing
   ],
-  providers: [UserServiceClient],
+  providers: [UserServiceClient, ExpenseServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

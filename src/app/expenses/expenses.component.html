@@ -58,31 +58,28 @@
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <th scope="row">Mark</th>
-            <td>Otto</td>
-            <td>@mdo</td>
+          <tr *ngFor="let expense of expensesByUserId">
+            <th scope="row">{{expense.ename}}</th>
+            <td>{{expense.dateCreated}}</td>
+            <td>{{expense.amount}}</td>
             <td>
               <button type="button" class="btn btn-primary">Edit</button> &nbsp;
-              <button type="button" class="btn btn-danger">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">Mark</th>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>
-              <button type="button" class="btn btn-primary">Edit</button> &nbsp;
-              <button type="button" class="btn btn-danger">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">Mark</th>
-            <td>Thornton</td>
-            <td>@twitter</td>
-            <td>
-              <button type="button" class="btn btn-primary">Edit</button> &nbsp;
-              <button type="button" class="btn btn-danger">Delete</button>
+              <button type="button" class="btn btn-danger">Delete</button> &nbsp;
+              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                View Details
+              </button>
+              <div class="collapse" id="collapseExample">
+                <div class="card card-body eg-people-card">
+                  <h3>Payers</h3>
+                  <ul>
+                    <li *ngFor="let currPayer of expense.payers">{{currPayer.firstname}}</li>
+                  </ul>
+                  <h3>People involved</h3>
+                  <ul>
+                    <li *ngFor="let currPersonInv of expense.peopleInvolved">{{currPersonInv.firstname}}</li>
+                  </ul>
+                </div>
+              </div>
             </td>
           </tr>
           </tbody>
