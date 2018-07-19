@@ -35,6 +35,11 @@ export class UserServiceClient {
       .then(response => response.json());
   }
 
+  findUserByEmail(email) {
+    return fetch(this.USER_URL + '/email/' + email)
+      .then(response => response.json(),
+        response => alert('Error thrown by server'));
+  }
 
   findUserById(id) {
     return fetch(this.USER_URL + '/' + id, {
@@ -43,7 +48,6 @@ export class UserServiceClient {
       .then(response => response.json(),
         response => alert('User not found by Id: ' + id));
   }
-
 
 // findUserByUsername(username, password) {
 //   return fetch(this.USER_URL)

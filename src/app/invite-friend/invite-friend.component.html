@@ -46,7 +46,105 @@
         </div>
       </div>
 
-      <!--<canvas class="my-4" id="myChart" width="900" height="380"></canvas>-->
+      <div class="input-group mb-3">
+        <input type="text" [(ngModel)]="emailId" class="form-control" placeholder="Friend's email"
+               aria-label="Recipient's username"
+               aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" (click)="searchByEmail(emailId)" type="button">Search</button>
+        </div>
+      </div>
+
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="search-tab" data-toggle="tab" href="#search" role="tab" aria-controls="search"
+             aria-selected="true">Search Results</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+             aria-selected="true">Friends</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+             aria-selected="false">Pending Requests</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+             aria-selected="false">Sent Requests</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="search" role="tabpanel" aria-labelledby="search-tab">
+          <ul class="list-group">
+            <li *ngIf="usersByEmail.length==0" class="list-group-item">Search results here ...
+            </li>
+            <li *ngFor="let currUser of usersByEmail" class="list-group-item">
+              <div class="row">
+              <div class="col-sm">{{currUser.firstname}} ({{currUser.email}})</div>
+                <div class="col-sm"><button class="btn btn-primary float-right"  (click)="sendFriendRequest(currUser.id)" type="button">+ Add friend</button></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <ul class="list-group">
+            <li class="list-group-item">Cras justo odio
+              <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </li>
+            <li class="list-group-item">Dapibus ac facilisis in
+              <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </li>
+            <li class="list-group-item">Morbi leo risus
+              <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </li>
+            <li class="list-group-item">Porta ac consectetur ac
+              <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </li>
+            <li class="list-group-item">Vestibulum at eros
+              <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <ul class="list-group">
+            <li class="list-group-item">Cras justo odio
+              <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </li>
+            <li class="list-group-item">Dapibus ac facilisis in
+              <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </li>
+            <li class="list-group-item">Morbi leo risus
+              <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+          <ul class="list-group">
+            <li class="list-group-item">Cras justo odio
+              <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
     </main>
   </div>
 </div>
